@@ -1,8 +1,6 @@
 package Kiosk;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -511,8 +509,24 @@ public class Main {
                             "\n" +
                             "[ Orders ]");
 
-                    for (Product total : order.orderMenu) {
-                        System.out.println(total.name + " | " + "W " + total.price + " | " + total.explanation);
+
+                    //중복 카운트를 위한 맵 생성
+                    Map<Product,Integer> productCount = new HashMap<>();
+
+                    //중복 카운트
+                    for (Product check : order.orderMenu) {
+                        if (productCount.containsKey(check)) {
+                            int count = productCount.get(check);
+                            productCount.put(check,count+1);
+                        } else {
+                            productCount.put(check,1);
+                        }
+                    }
+
+                    //저장된 맵 출력!!
+                    for (Map.Entry<Product,Integer> check: productCount.entrySet()) {
+                        System.out.println(check.getKey().name + " | W " + check.getKey().price*check.getValue() + " | " + check.getValue()+" 개 | "+check.getKey().explanation);
+
                     }
 
                     System.out.println(
@@ -613,9 +627,24 @@ public class Main {
                         System.out.println("아직 판매된 물품이 없습니다.");
                     } else {
                         System.out.println("현재까지 총 판매된 상품 목록은 아래와 같습니다.");
-                        for (Product total : totalMenu.menuSum) {
-                            System.out.println("-" + total.name + " | W " + total.price);
+
+                        //다시 한번, 중복 제거 코드!!!
+                        Map<Product,Integer> productCount2 = new HashMap<>();
+
+                        for (Product check2 : totalMenu.menuSum) {
+                            if (productCount2.containsKey(check2)) {
+                                int count = productCount2.get(check2);
+                                productCount2.put(check2, count+1);
+                            } else {
+                                productCount2.put(check2, 1);
+                            }
                         }
+
+                        for (Map.Entry<Product,Integer> check2 : productCount2.entrySet()) {
+                            System.out.println("-" + check2.getKey().name+"   | "+check2.getValue()+"개 | W " + check2.getKey().price);
+
+                        }
+
                     }
                     System.out.println("\n[ 총 판매금액 현황 ]");
                     System.out.println("현재까지 총 판매된 금액은 [ W "+totalMoney+" ] 입니다.\n");
