@@ -38,6 +38,9 @@ public class Main {
         TotalMenu totalMenu = new TotalMenu();
         totalMenu.menuSum = new ArrayList<Product>();
 
+        //Print의 메서드 쓰기 위해
+        Print print = new Print();
+
 
         while (true) {
             System.out.println("\"밥집에 오신걸 환영합니다.\"\n" +
@@ -75,123 +78,27 @@ public class Main {
                     while (true) {                            //다시 선택 루프
                         switch (detailMenu) {
                             case "1": {
-                                System.out.println(korea1.name + "| " + korea1.price + " | " + korea1.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-//////////////////////////////////////////////////////////////////////////////////////////////이거까지만 다시 선택하도록 만들어봤다.
-                                againChoice1_1:
-                                while (true) {
-                                    switch (addOrNo) {
-                                        case "1":
-                                            System.out.println(korea1.name + "가 장바구니에 추가되었습니다.\n");
-                                            break againChoice1_1;
-                                        case "2":
-                                            System.out.println("취소되었습니다.");
-                                            break againChoice1_1;
-                                        default:
-                                            System.out.println("1번 혹은 2번을 입력하세요.");
-                                            addOrNo = sc.nextLine();
-                                    }
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(korea1);
-
-                                }
+                                //메서드로 코드를 줄여봤다.
+                                print.hey(sc,order,korea1,korea1.name,korea1.price,korea1.explanation);
 
                                 break againChoice1;
                             }
                             case "2": {
-                                System.out.println(korea2.name + "| " + korea2.price + " | " + korea2.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(korea2.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(korea2);
-
-                                }
+                                print.hey(sc,order,korea3,korea2.name,korea2.price,korea2.explanation);
 
                                 break againChoice1;
                             }
                             case "3": {
-                                System.out.println(korea3.name + "| " + korea3.price + " | " + korea3.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(korea3.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(korea3);
-
-                                }
+                                print.hey(sc,order,korea3,korea3.name,korea3.price,korea3.explanation);
 
                                 break againChoice1;
                             }
                             case "4": {
-                                System.out.println(korea4.name + "| " + korea4.price + " | " + korea4.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(korea4.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(korea4);
-
-                                }
-
+                                print.hey(sc,order,korea4,korea4.name,korea4.price,korea4.explanation);
                                 break againChoice1;
                             }
                             case "5": {
-                                System.out.println(korea5.name + "| " + korea5.price + " | " + korea5.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(korea5.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(korea5);
-
-                                }
+                                print.hey(sc,order,korea5,korea5.name,korea5.price,korea5.explanation);
                                 break againChoice1;
                             }
                             //엉뚱한걸 입력했을 때 다시 선택하게끔
@@ -220,117 +127,24 @@ public class Main {
                     while (true) {
                         switch (detailMenu) {
                             case "1": {
-                                System.out.println(china1.name + "| " + china1.price + " | " + china1.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(china1.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(china1);
-
-                                }
-
+                                print.hey(sc,order,china1,china1.name,china1.price,china1.explanation);
                                 break  againChoice1;
                             }
                             case "2": {
-                                System.out.println(china2.name + "| " + china2.price + " | " + china2.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(china2.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(china2);
-
-                                }
-
+                                print.hey(sc,order,china2,china2.name,china2.price,china2.explanation);
                                 break  againChoice1;
                             }
                             case "3": {
-                                System.out.println(china3.name + "| " + china3.price + " | " + china3.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(china3.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(china3);
-
-                                }
+                                print.hey(sc,order,china3,china3.name,china3.price,china3.explanation);
 
                                 break  againChoice1;
                             }
                             case "4": {
-                                System.out.println(china4.name + "| " + china4.price + " | " + china4.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(china4.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(china4);
-
-                                }
-
+                                print.hey(sc,order,china4,china4.name,china4.price,china4.explanation);
                                 break  againChoice1;
                             }
                             case "5": {
-                                System.out.println(china5.name + "| " + china5.price + " | " + china5.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(china5.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(china5);
-
-                                }
+                                print.hey(sc,order,china5,china5.name,china5.price,china5.explanation);
 
                                 break  againChoice1;
                             }
@@ -360,118 +174,23 @@ public class Main {
                     while (true) {
                         switch (detailMenu) {
                             case "1": {
-                                System.out.println(japan1.name + "| " + japan1.price + " | " + japan1.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(japan1.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(japan1);
-
-                                }
-
+                                print.hey(sc,order,japan1,japan1.name,japan1.price,japan1.explanation);
                                 break againChoice1;
                             }
                             case "2": {
-                                System.out.println(japan2.name + "| " + japan2.price + " | " + japan2.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(japan2.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(japan2);
-
-                                }
-
+                                print.hey(sc,order,japan2,japan2.name,japan2.price,japan2.explanation);
                                 break againChoice1;
                             }
                             case "3": {
-                                System.out.println(japan3.name + "| " + japan3.price + " | " + japan3.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(japan3.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(japan3);
-
-                                }
-
+                                print.hey(sc,order,japan3,japan3.name,japan3.price,japan3.explanation);
                                 break againChoice1;
                             }
                             case "4": {
-                                System.out.println(japan4.name + "| " + japan4.price + " | " + japan4.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(japan4.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(japan4);
-
-                                }
-
+                                print.hey(sc,order,japan4,japan4.name,japan4.price,japan4.explanation);
                                 break againChoice1;
                             }
                             case "5": {
-                                System.out.println(japan5.name + "| " + japan5.price + " | " + japan5.explanation + "\n" +
-                                        "위 메뉴를 장바구니에 추가하시겠습니까?\n" +
-                                        "1. 확인        2. 취소");
-
-                                String addOrNo = sc.nextLine();
-
-                                switch (addOrNo) {
-                                    case "1":
-                                        System.out.println(japan5.name + "가 장바구니에 추가되었습니다.\n");
-                                        break;
-                                    case "2":
-                                        System.out.println("취소되었습니다.");
-                                        break;
-                                }
-
-                                if (addOrNo.equals("1")) {
-                                    order.orderMenu.add(japan5);
-
-                                }
-
+                                print.hey(sc,order,japan5,japan5.name,japan5.price,japan5.explanation);
                                 break againChoice1;
                             }
 
